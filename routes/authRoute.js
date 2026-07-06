@@ -100,7 +100,7 @@ router.get("/logout", (req, res) => {
 
 
 // Protected Route
-router.get("/dashboard", authMiddleware, (req, res) => {
+router.get("/check", authMiddleware, (req, res) => {
 
     res.status(200).json({
         success: true,
