@@ -9,6 +9,8 @@ const cookieParser = require("cookie-parser");
 const connectDB = require("./config/db");
 const authRoutes = require("./routes/authRoute");
 const expenseRoutes = require("./routes/transactionRoute");
+const searchRoutes = require("./routes/searchRoute");
+
 
 app.use(cors({
     origin: "http://localhost:5173",
@@ -32,6 +34,8 @@ app.get("/" , (req, res)=>{
 
 app.use("/api", authRoutes);
 app.use("/api", expenseRoutes);
+app.use("/api", searchRoutes);
+
 
 app.listen("5000" , ()=>{
     console.log("port is working")
