@@ -29,5 +29,23 @@ router.get("/search/:key", async (req, res) => {
     }
 });
 
+router.get("/filter/:key", async (req, res) => {
+    try {
+
+        const key = req.params.key;
+
+        const data = await Transaction.find({
+             type: { $regex: key, $options: "i" } 
+        });
+
+        res.json(data);
+
+    } catch (err) {
+        res.status(500).json({
+            message: err.message
+        });
+    }
+});
+
 module.exports = router;
 
