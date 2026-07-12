@@ -34,7 +34,7 @@ app.get("/" , (req, res)=>{
 
 app.use("/api", authRoutes);
 app.use("/api", expenseRoutes);
-app.use("/api", searchRoutes);
+app.use("/api", searchRoutes); // handle search filter delete
 
 
 
