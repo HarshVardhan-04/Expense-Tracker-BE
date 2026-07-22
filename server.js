@@ -11,6 +11,7 @@ const authRoutes = require("./routes/authRoute");
 const expenseRoutes = require("./routes/transactionRoute");
 const searchRoutes = require("./routes/searchRoute");
 const userRoute = require("./routes/userRoute");
+const settingRoute = require("./routes/settingRoute");
 
 app.use(cors({
     origin: "http://localhost:5173",
@@ -36,6 +37,7 @@ app.use("/api", authRoutes);
 app.use("/api", expenseRoutes);
 app.use("/api", searchRoutes); // handle search filter delete
 app.use("/api/user", userRoute);
+app.use("/api" , settingRoute);
 
 
 
