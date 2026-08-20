@@ -123,16 +123,20 @@ router.post("/add", authMiddleware, async (req, res) => {
 
 });
 
-    router.get("/dashboard", async (req, res) => {
+    router.get("/dashboard", authMiddleware, async (req, res) => {
     try {
-
-        const transactions = await Transaction.find()
-            .sort({ date: -1 }); // Latest first
+        const transactions = await Transaction.find({
+            user: req.user.id
+        }).sort({
+            date: -1
+        });
 
         res.json(transactions);
 
     } catch (err) {
-        res.status(500).json({ message: err.message });
+        res.status(500).json({
+            message: err.message
+        });
     }
 });
 
