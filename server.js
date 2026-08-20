@@ -13,6 +13,8 @@ const searchRoutes = require("./routes/searchRoute");
 const userRoute = require("./routes/userRoute");
 const settingRoute = require("./routes/settingRoute");
 
+const PORT = process.env.PORT || 5000;
+
 app.use(cors({
     origin: "http://localhost:5173",
     credentials: true
@@ -41,6 +43,6 @@ app.use("/api" , settingRoute);
 
 
 
-app.listen("5000" , ()=>{
+app.listen(PORT , ()=>{
     console.log("port is working")
 });
